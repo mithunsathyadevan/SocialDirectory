@@ -1,0 +1,10 @@
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\Models\bin\Debug\netcoreapp3.1\SocailDirectoryModels.deps.json
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\Models\bin\Debug\netcoreapp3.1\SocailDirectoryModels.dll
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\Models\bin\Debug\netcoreapp3.1\SocailDirectoryModels.pdb
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\Models\obj\Debug\netcoreapp3.1\SocailDirectoryModels.csproj.AssemblyReference.cache
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\Models\obj\Debug\netcoreapp3.1\SocailDirectoryModels.GeneratedMSBuildEditorConfig.editorconfig
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\Models\obj\Debug\netcoreapp3.1\SocailDirectoryModels.AssemblyInfoInputs.cache
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\Models\obj\Debug\netcoreapp3.1\SocailDirectoryModels.AssemblyInfo.cs
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\Models\obj\Debug\netcoreapp3.1\SocailDirectoryModels.csproj.CoreCompileInputs.cache
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\Models\obj\Debug\netcoreapp3.1\SocailDirectoryModels.dll
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\Models\obj\Debug\netcoreapp3.1\SocailDirectoryModels.pdb

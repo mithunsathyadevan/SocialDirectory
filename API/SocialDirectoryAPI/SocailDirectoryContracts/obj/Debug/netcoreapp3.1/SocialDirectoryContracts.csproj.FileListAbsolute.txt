@@ -1,0 +1,13 @@
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\SocailDirectoryContracts\bin\Debug\netcoreapp3.1\SocialDirectoryContracts.deps.json
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\SocailDirectoryContracts\bin\Debug\netcoreapp3.1\SocialDirectoryContracts.dll
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\SocailDirectoryContracts\bin\Debug\netcoreapp3.1\SocialDirectoryContracts.pdb
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\SocailDirectoryContracts\bin\Debug\netcoreapp3.1\SocailDirectoryModels.dll
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\SocailDirectoryContracts\bin\Debug\netcoreapp3.1\SocailDirectoryModels.pdb
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\SocailDirectoryContracts\obj\Debug\netcoreapp3.1\SocialDirectoryContracts.csproj.AssemblyReference.cache
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\SocailDirectoryContracts\obj\Debug\netcoreapp3.1\SocialDirectoryContracts.GeneratedMSBuildEditorConfig.editorconfig
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\SocailDirectoryContracts\obj\Debug\netcoreapp3.1\SocialDirectoryContracts.AssemblyInfoInputs.cache
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\SocailDirectoryContracts\obj\Debug\netcoreapp3.1\SocialDirectoryContracts.AssemblyInfo.cs
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\SocailDirectoryContracts\obj\Debug\netcoreapp3.1\SocialDirectoryContracts.csproj.CoreCompileInputs.cache
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\SocailDirectoryContracts\obj\Debug\netcoreapp3.1\SocialDirectoryContracts.csproj.CopyComplete
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\SocailDirectoryContracts\obj\Debug\netcoreapp3.1\SocialDirectoryContracts.dll
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\SocailDirectoryContracts\obj\Debug\netcoreapp3.1\SocialDirectoryContracts.pdb

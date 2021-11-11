@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocialDirectoryAPI", "SocialDirectoryAPI\SocialDirectoryAPI\SocialDirectoryAPI.csproj", "{AF6FDEC5-17BF-4BED-8B8C-80C329B44B12}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocialDirectoryDataBase", "SocialDirectoryAPI\SocialDirectoryDataBase\SocialDirectoryDataBase.csproj", "{41162EAC-3B55-4014-97C9-D2D865649B78}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocialDirectoryContracts", "SocialDirectoryAPI\SocailDirectoryContracts\SocialDirectoryContracts.csproj", "{6A626C98-D765-4974-AECF-933C594AE89D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocailDirectoryServices", "SocialDirectoryAPI\SocailDirectoryServices\SocailDirectoryServices.csproj", "{5A4A6C18-8395-4FDA-896F-B8540F1D8A20}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocailDirectoryModels", "SocialDirectoryAPI\Models\SocailDirectoryModels.csproj", "{C620829F-F1DA-4307-86CD-E7178FFC6281}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AF6FDEC5-17BF-4BED-8B8C-80C329B44B12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF6FDEC5-17BF-4BED-8B8C-80C329B44B12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF6FDEC5-17BF-4BED-8B8C-80C329B44B12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF6FDEC5-17BF-4BED-8B8C-80C329B44B12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41162EAC-3B55-4014-97C9-D2D865649B78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41162EAC-3B55-4014-97C9-D2D865649B78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41162EAC-3B55-4014-97C9-D2D865649B78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41162EAC-3B55-4014-97C9-D2D865649B78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A626C98-D765-4974-AECF-933C594AE89D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A626C98-D765-4974-AECF-933C594AE89D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A626C98-D765-4974-AECF-933C594AE89D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A626C98-D765-4974-AECF-933C594AE89D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A4A6C18-8395-4FDA-896F-B8540F1D8A20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A4A6C18-8395-4FDA-896F-B8540F1D8A20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A4A6C18-8395-4FDA-896F-B8540F1D8A20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A4A6C18-8395-4FDA-896F-B8540F1D8A20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C620829F-F1DA-4307-86CD-E7178FFC6281}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C620829F-F1DA-4307-86CD-E7178FFC6281}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C620829F-F1DA-4307-86CD-E7178FFC6281}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C620829F-F1DA-4307-86CD-E7178FFC6281}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {563D7374-AA01-45DD-82E7-8768C17BCDA8}
+	EndGlobalSection
+EndGlobal

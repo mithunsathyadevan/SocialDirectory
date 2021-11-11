@@ -1,0 +1,10 @@
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\SocailDirectoryContracts\bin\Debug\netcoreapp3.1\SocailDirectoryContracts.deps.json
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\SocailDirectoryContracts\bin\Debug\netcoreapp3.1\SocailDirectoryContracts.dll
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\SocailDirectoryContracts\bin\Debug\netcoreapp3.1\SocailDirectoryContracts.pdb
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\SocailDirectoryContracts\obj\Debug\netcoreapp3.1\SocailDirectoryContracts.csproj.AssemblyReference.cache
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\SocailDirectoryContracts\obj\Debug\netcoreapp3.1\SocailDirectoryContracts.GeneratedMSBuildEditorConfig.editorconfig
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\SocailDirectoryContracts\obj\Debug\netcoreapp3.1\SocailDirectoryContracts.AssemblyInfoInputs.cache
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\SocailDirectoryContracts\obj\Debug\netcoreapp3.1\SocailDirectoryContracts.AssemblyInfo.cs
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\SocailDirectoryContracts\obj\Debug\netcoreapp3.1\SocailDirectoryContracts.csproj.CoreCompileInputs.cache
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\SocailDirectoryContracts\obj\Debug\netcoreapp3.1\SocailDirectoryContracts.dll
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\SocailDirectoryContracts\obj\Debug\netcoreapp3.1\SocailDirectoryContracts.pdb

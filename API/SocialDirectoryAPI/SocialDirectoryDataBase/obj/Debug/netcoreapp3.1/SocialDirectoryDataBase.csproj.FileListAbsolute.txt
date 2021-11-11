@@ -1,0 +1,16 @@
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\SocialDirectoryDataBase\bin\Debug\netcoreapp3.1\SocialDirectoryDataBase.deps.json
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\SocialDirectoryDataBase\bin\Debug\netcoreapp3.1\SocialDirectoryDataBase.runtimeconfig.json
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\SocialDirectoryDataBase\bin\Debug\netcoreapp3.1\SocialDirectoryDataBase.runtimeconfig.dev.json
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\SocialDirectoryDataBase\bin\Debug\netcoreapp3.1\SocialDirectoryDataBase.dll
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\SocialDirectoryDataBase\bin\Debug\netcoreapp3.1\SocialDirectoryDataBase.pdb
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\SocialDirectoryDataBase\bin\Debug\netcoreapp3.1\SocailDirectoryModels.dll
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\SocialDirectoryDataBase\bin\Debug\netcoreapp3.1\SocailDirectoryModels.pdb
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\SocialDirectoryDataBase\obj\Debug\netcoreapp3.1\SocialDirectoryDataBase.csproj.AssemblyReference.cache
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\SocialDirectoryDataBase\obj\Debug\netcoreapp3.1\SocialDirectoryDataBase.GeneratedMSBuildEditorConfig.editorconfig
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\SocialDirectoryDataBase\obj\Debug\netcoreapp3.1\SocialDirectoryDataBase.AssemblyInfoInputs.cache
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\SocialDirectoryDataBase\obj\Debug\netcoreapp3.1\SocialDirectoryDataBase.AssemblyInfo.cs
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\SocialDirectoryDataBase\obj\Debug\netcoreapp3.1\SocialDirectoryDataBase.csproj.CoreCompileInputs.cache
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\SocialDirectoryDataBase\obj\Debug\netcoreapp3.1\SocialDirectoryDataBase.csproj.CopyComplete
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\SocialDirectoryDataBase\obj\Debug\netcoreapp3.1\SocialDirectoryDataBase.dll
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\SocialDirectoryDataBase\obj\Debug\netcoreapp3.1\SocialDirectoryDataBase.pdb
+D:\SocialDirectoryProject\API\SocialDirectoryAPI\SocialDirectoryDataBase\obj\Debug\netcoreapp3.1\SocialDirectoryDataBase.genruntimeconfig.cache

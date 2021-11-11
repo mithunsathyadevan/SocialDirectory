@@ -1,0 +1,254 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\SocialDirectoryProject\\API\\SocialDirectoryAPI\\SocailDirectoryServices\\SocailDirectoryServices.csproj": {}
+  },
+  "projects": {
+    "D:\\SocialDirectoryProject\\API\\SocialDirectoryAPI\\Models\\SocailDirectoryModels.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\SocialDirectoryProject\\API\\SocialDirectoryAPI\\Models\\SocailDirectoryModels.csproj",
+        "projectName": "SocailDirectoryModels",
+        "projectPath": "D:\\SocialDirectoryProject\\API\\SocialDirectoryAPI\\Models\\SocailDirectoryModels.csproj",
+        "packagesPath": "C:\\Users\\mithun.sathyadevan\\.nuget\\packages\\",
+        "outputPath": "D:\\SocialDirectoryProject\\API\\SocialDirectoryAPI\\Models\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\mithun.sathyadevan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\SocialDirectoryProject\\API\\SocialDirectoryAPI\\SocailDirectoryContracts\\SocialDirectoryContracts.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\SocialDirectoryProject\\API\\SocialDirectoryAPI\\SocailDirectoryContracts\\SocialDirectoryContracts.csproj",
+        "projectName": "SocialDirectoryContracts",
+        "projectPath": "D:\\SocialDirectoryProject\\API\\SocialDirectoryAPI\\SocailDirectoryContracts\\SocialDirectoryContracts.csproj",
+        "packagesPath": "C:\\Users\\mithun.sathyadevan\\.nuget\\packages\\",
+        "outputPath": "D:\\SocialDirectoryProject\\API\\SocialDirectoryAPI\\SocailDirectoryContracts\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\mithun.sathyadevan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "D:\\SocialDirectoryProject\\API\\SocialDirectoryAPI\\Models\\SocailDirectoryModels.csproj": {
+                "projectPath": "D:\\SocialDirectoryProject\\API\\SocialDirectoryAPI\\Models\\SocailDirectoryModels.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\SocialDirectoryProject\\API\\SocialDirectoryAPI\\SocailDirectoryServices\\SocailDirectoryServices.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\SocialDirectoryProject\\API\\SocialDirectoryAPI\\SocailDirectoryServices\\SocailDirectoryServices.csproj",
+        "projectName": "SocailDirectoryServices",
+        "projectPath": "D:\\SocialDirectoryProject\\API\\SocialDirectoryAPI\\SocailDirectoryServices\\SocailDirectoryServices.csproj",
+        "packagesPath": "C:\\Users\\mithun.sathyadevan\\.nuget\\packages\\",
+        "outputPath": "D:\\SocialDirectoryProject\\API\\SocialDirectoryAPI\\SocailDirectoryServices\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\mithun.sathyadevan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "D:\\SocialDirectoryProject\\API\\SocialDirectoryAPI\\Models\\SocailDirectoryModels.csproj": {
+                "projectPath": "D:\\SocialDirectoryProject\\API\\SocialDirectoryAPI\\Models\\SocailDirectoryModels.csproj"
+              },
+              "D:\\SocialDirectoryProject\\API\\SocialDirectoryAPI\\SocailDirectoryContracts\\SocialDirectoryContracts.csproj": {
+                "projectPath": "D:\\SocialDirectoryProject\\API\\SocialDirectoryAPI\\SocailDirectoryContracts\\SocialDirectoryContracts.csproj"
+              },
+              "D:\\SocialDirectoryProject\\API\\SocialDirectoryAPI\\SocialDirectoryDataBase\\SocialDirectoryDataBase.csproj": {
+                "projectPath": "D:\\SocialDirectoryProject\\API\\SocialDirectoryAPI\\SocialDirectoryDataBase\\SocialDirectoryDataBase.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\SocialDirectoryProject\\API\\SocialDirectoryAPI\\SocialDirectoryDataBase\\SocialDirectoryDataBase.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\SocialDirectoryProject\\API\\SocialDirectoryAPI\\SocialDirectoryDataBase\\SocialDirectoryDataBase.csproj",
+        "projectName": "SocialDirectoryDataBase",
+        "projectPath": "D:\\SocialDirectoryProject\\API\\SocialDirectoryAPI\\SocialDirectoryDataBase\\SocialDirectoryDataBase.csproj",
+        "packagesPath": "C:\\Users\\mithun.sathyadevan\\.nuget\\packages\\",
+        "outputPath": "D:\\SocialDirectoryProject\\API\\SocialDirectoryAPI\\SocialDirectoryDataBase\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\mithun.sathyadevan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "D:\\SocialDirectoryProject\\API\\SocialDirectoryAPI\\Models\\SocailDirectoryModels.csproj": {
+                "projectPath": "D:\\SocialDirectoryProject\\API\\SocialDirectoryAPI\\Models\\SocailDirectoryModels.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.12, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.12, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

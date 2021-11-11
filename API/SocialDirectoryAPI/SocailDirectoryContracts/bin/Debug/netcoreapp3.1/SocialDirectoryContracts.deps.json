@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "SocialDirectoryContracts/1.0.0": {
+        "dependencies": {
+          "SocailDirectoryModels": "1.0.0"
+        },
+        "runtime": {
+          "SocialDirectoryContracts.dll": {}
+        }
+      },
+      "SocailDirectoryModels/1.0.0": {
+        "runtime": {
+          "SocailDirectoryModels.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SocialDirectoryContracts/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SocailDirectoryModels/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
