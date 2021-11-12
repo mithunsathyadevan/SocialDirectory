@@ -33,7 +33,7 @@ namespace SocailDirectoryServices.UserManagement
                     new Claim(ClaimTypes.Name,string.Format("{0} {1}",model.FirstName,model.LastName)),
                     new Claim("UserId", model.UserId.ToString ())
                 }),
-                Expires = DateTime.UtcNow.AddMinutes(double.Parse(_expDate)),
+                Expires = DateTime.UtcNow.AddHours(1),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
 

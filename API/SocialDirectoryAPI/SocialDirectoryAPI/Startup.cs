@@ -30,6 +30,16 @@ namespace SocialDirectoryAPI
         {
             services.AddControllers();
             services.AddSwaggerGen();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllOrigins",
+                    builder =>
+                    {
+                        builder.AllowAnyHeader()
+                                       .AllowAnyOrigin()
+                                      .AllowAnyMethod();
+                    });
+            });
             services.AddTokenAuthentication(Configuration);
             services.AddTransient< IAuthenticateContract ,AuthtenticationService >();
             services.AddTransient<IJwtContract, JWTService>();
@@ -48,7 +58,7 @@ namespace SocialDirectoryAPI
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
-
+            app.UseCors("AllOrigins");
 
             app.UseEndpoints(endpoints =>
             {

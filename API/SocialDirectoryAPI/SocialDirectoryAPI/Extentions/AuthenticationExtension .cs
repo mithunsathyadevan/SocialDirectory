@@ -24,13 +24,13 @@ namespace SocialDirectoryAPI.Extentions
             })
             .AddJwtBearer(x =>
             {
+                x.RequireHttpsMetadata = false;
+                x.SaveToken = true;
                 x.TokenValidationParameters = new TokenValidationParameters
                 {
                     IssuerSigningKey = new SymmetricSecurityKey(key),
-                    ValidateIssuer = true,
-                    ValidateAudience = true,
-                    ValidIssuer = "localhost",
-                    ValidAudience = "api://default"
+                    ValidateIssuer = false,
+                    ValidateAudience = false
                 };
             });
 
