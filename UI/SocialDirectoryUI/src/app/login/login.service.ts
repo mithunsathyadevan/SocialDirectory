@@ -23,7 +23,7 @@ export class LoginService {
     return this.httpClient.post(url, objet);
   }
   public Register(register:any): Observable<any> {
-    debugger
+    
     let objet={password:register.password1,firstName:register.FirstName,lastName:register.LastName,middleName:register.MiddleName,
     email:register.email};
     const url = `${this.apiURL}api/Authentication/RegisterUser`;
