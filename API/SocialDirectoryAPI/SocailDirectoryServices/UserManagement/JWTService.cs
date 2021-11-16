@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace SocailDirectoryServices.UserManagement
@@ -20,11 +21,23 @@ namespace SocailDirectoryServices.UserManagement
             _secret = config.GetSection("JwtConfig").GetSection("secret").Value;
             _expDate = config.GetSection("JwtConfig").GetSection("expirationInMinutes").Value;
         }
-
+        private byte[] Encode(string pass)
+        {
+            //Declarations
+            Byte[] originalBytes;
+            Byte[] encodedBytes;
+            MD5 md5;
+            //Instantiate MD5CryptoServiceProvider, get bytes for original password and compute hash (encoded password)
+            md5 = new MD5CryptoServiceProvider();
+            originalBytes = ASCIIEncoding.Default.GetBytes(pass);
+            encodedBytes = md5.ComputeHash(originalBytes);
+            //Convert encoded bytes back to a 'readable' string
+            return encodedBytes;
+        }
         public string GenerateSecurityToken(UserRegisterModel model)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(_secret);
+            var key = Encode(_secret);
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new[]
