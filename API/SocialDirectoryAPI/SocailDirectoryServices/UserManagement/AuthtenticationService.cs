@@ -14,20 +14,14 @@ namespace SocailDirectoryServices.UserManagement
     public class AuthtenticationService : IAuthenticateContract
     {
         IJwtContract _jwtService;
-        public AuthtenticationService(IJwtContract jwtService)
+        SocialDirectoryContext _context;
+        public AuthtenticationService(IJwtContract jwtService,
+            SocialDirectoryContext context)
         {
             _jwtService = jwtService;
+            _context=context;
         }
-        public void Get()
-        {
-            using (var context = new SocialDirectoryContext())
-            {
-
-                //var data = context.UserDetails.ToList();
-                //return data.ToString();
-            }
-
-        }
+       
         public string EncodePassword(string pass)
         {
             //Declarations
@@ -53,8 +47,7 @@ namespace SocailDirectoryServices.UserManagement
                 MiddleName = userRegisterModel.MiddleName,
                 UserName = userRegisterModel.Email
             };
-            using (var _context = new SocialDirectoryContext())
-            {
+            
 
                 var userAlreadyExist = _context.UserDetails.Any(x => x.UserName == userRegisterModel.Email);
                 if (userAlreadyExist)
@@ -77,15 +70,14 @@ namespace SocailDirectoryServices.UserManagement
                     _context.Logins.Add(loginModel);
                     await _context.SaveChangesAsync();
                 }
-            }
+            
 
             return retunModel;
         }
         public async Task<ResponseViewModel> Login(string username, string password)
         {
             ResponseViewModel response = new ResponseViewModel();
-            using (var _context = new SocialDirectoryContext())
-            {
+         
                 var userDetails =await _context.UserDetails.Where(x => x.UserName == username).FirstOrDefaultAsync();
                 if(userDetails!=null)
                 {
@@ -114,7 +106,7 @@ namespace SocailDirectoryServices.UserManagement
                     response.IsSuccess = false;
                     response.Message = "Invalid User name";
                 }
-            }
+       
             return response;
         }
     }

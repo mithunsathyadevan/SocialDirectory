@@ -5,6 +5,7 @@ using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,7 +17,7 @@ namespace SocialDirectoryAPI.Extentions
         {
             var secret = config.GetSection("JwtConfig").GetSection("secret").Value;
 
-            var key = Encoding.ASCII.GetBytes(secret);
+            var key = Encode(secret);
             services.AddAuthentication(x =>
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -35,6 +36,19 @@ namespace SocialDirectoryAPI.Extentions
             });
 
             return services;
+        }
+        private static byte[] Encode(string pass)
+        {
+            //Declarations
+            Byte[] originalBytes;
+            Byte[] encodedBytes;
+            MD5 md5;
+            //Instantiate MD5CryptoServiceProvider, get bytes for original password and compute hash (encoded password)
+            md5 = new MD5CryptoServiceProvider();
+            originalBytes = ASCIIEncoding.Default.GetBytes(pass);
+            encodedBytes = md5.ComputeHash(originalBytes);
+            //Convert encoded bytes back to a 'readable' string
+            return encodedBytes;
         }
     }
 }
