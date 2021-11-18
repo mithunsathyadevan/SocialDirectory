@@ -20,8 +20,8 @@ export class LoginComponent implements OnInit {
     {
       this.loginsService.Login(loginForm.value.username,loginForm.value.password).subscribe((data) => {
         if (data.isSuccess) {
-          sessionStorage.setItem('token', data.token);
-          this.router.navigate(['/matchfinder']);
+          localStorage.setItem('token', data.token);
+          this.router.navigate(['/contact']);
           
         }
       }

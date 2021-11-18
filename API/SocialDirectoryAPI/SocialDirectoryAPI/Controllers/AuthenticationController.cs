@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using SocailDirectoryModels.Models;
@@ -59,6 +60,23 @@ namespace SocialDirectoryAPI.Controllers
                 returnData.IsSuccess = false;
                 returnData.Token = data.Message;
             }
+            return returnData;
+        }
+        [HttpGet("GetUserDetails")]
+        [Authorize]
+        public async Task<UserDetailsResponseModel> GetUserDetails()
+        {
+            UserDetailsResponseModel returnData = new UserDetailsResponseModel();
+            int userId = Convert.ToInt32(HttpContext.User.Claims.Where(x => x.Type == "UserId").FirstOrDefault().Value);
+            var data = await _authenticate.GetUserDetails(userId);
+            if(data!=null)
+            {
+                returnData.Email = data.Email;
+                returnData.Name = data.Name;
+                returnData.Location = data.Location;
+                returnData.UserId = data.UserId;
+            }
+            
             return returnData;
         }
 

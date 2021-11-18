@@ -109,5 +109,21 @@ namespace SocailDirectoryServices.UserManagement
        
             return response;
         }
+        public async Task<UserDetailsModel> GetUserDetails(int userId)
+        {
+            UserDetailsModel response = new UserDetailsModel();
+
+            var userDetails = await _context.UserDetails.Where(x => x.UserId == userId).FirstOrDefaultAsync();
+            if(userDetails!=null)
+            {
+                response.Email = userDetails.Email;
+                response.Location = userDetails.LocationName;
+                response.UserId = userDetails.UserId;
+                response.Name = string.Format("{0} {1}", userDetails.FirstName, userDetails.LastName);
+            }
+               
+
+            return response;
+        }
     }
 }
