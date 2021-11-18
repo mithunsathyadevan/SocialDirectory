@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from './Auth/auth.service';
 import { CommonService } from './services/common.service';
 
 @Component({
@@ -7,12 +8,20 @@ import { CommonService } from './services/common.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   login=false;
   dropdown :any;
   subDropDown:any;
   title = 'SocialDirectoryUI';
-  constructor(private commmonService:CommonService,    private router: Router) { }
+  IsAuthenticated:any=false;
+  ngOnInit(): void {
+    this.IsAuthenticated=this.authService.isAuthenticated();
+    this.authService.getData().subscribe(data => {
+      this.IsAuthenticated = data;
+    })
+  }
+  constructor(private commmonService:CommonService,    private router: Router,private authService:AuthService) { }
+ 
   onKeyDownEvent(event: any){
 
     console.log(event.target.value);
@@ -47,6 +56,13 @@ export class AppComponent {
      }
      );
     }
+    
+  }
+  Logout()
+  {
+    this.authService.logout();
+    this.router.navigate(['']);
+    this.IsAuthenticated=this.authService.isAuthenticated();
     
   }
  

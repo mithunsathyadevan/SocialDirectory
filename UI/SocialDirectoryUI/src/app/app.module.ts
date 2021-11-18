@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './Auth/token-interceptor.service';
 import { ContactlistComponent } from './components/contactlist/contactlist.component';
+import { AuthService } from './Auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { ContactlistComponent } from './components/contactlist/contactlist.compo
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true
-    }
+    },AuthService
   ],
   bootstrap: [AppComponent]
 })

@@ -15,6 +15,7 @@ export class ContactlistComponent implements OnInit {
   constructor(private contactService:ContactlistService) { }
 
   ngOnInit(): void {
+    
     this.loadData();
     this.loadDataUserDetails();
     this.GetUsersInterests();
@@ -54,9 +55,16 @@ export class ContactlistComponent implements OnInit {
   {
     let interest = this.interestList.find((user: any) => user.name === this.selectedInterest);
     this.contactService.SaveInterests(interest.id).subscribe((data) => {
-  
-     
+  debugger
+     if(!data.isSuccess)
+     {
+       debugger
       this.GetUsersInterests();
+     }
+     else{
+       
+     }
+      
    
    });
   }
