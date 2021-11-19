@@ -32,6 +32,8 @@ namespace SocialDirectoryDataBase.Models
         public string LastName { get; set; }
         [Column(TypeName = "datetime")]
         public DateTime? CreatedOn { get; set; }
+        [StringLength(100)]
+        public string LocationName { get; set; }
 
         [InverseProperty(nameof(ContactList.User))]
         public virtual ICollection<ContactList> ContactLists { get; set; }

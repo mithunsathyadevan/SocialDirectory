@@ -1,1 +1,48 @@
-<p>dashboard works!</p>
+<br><br>
+<h3 class="p-3 text-center" style="text-align: center;">Matches</h3>
+<div class="page-content page-container" id="page-content">
+    <div class="padding">
+        <div class="alert alert-success" *ngIf="Success===true">
+            <strong>Success!</strong> This contact is added succesfully.
+          </div>
+          <div class="alert alert-danger"*ngIf="Failed===true">
+            <strong>Failed!</strong>{{Message}}.
+          </div>
+        <div class="row">
+            <div class="col-sm-6" *ngFor="let user of users">
+                <div class="list list-row block">
+                    <div class="list-item" data-id="19">
+                        <div><a href="#" data-abc="true"><span class="w-48 avatar gd-warning">{{user.shortName}}</span></a></div>
+                        <div class="flex" style="    width: 100%;"> <a href="#" class="item-author text-color" data-abc="true">{{user.name}}</a>
+                            <div class="item-except text-muted text-sm h-1x">{{user.email}}</div>
+                        </div>
+                        <div >
+                        <div class="no-wrap" >
+                            <button class="btn btn-primary btn-sm rounded-0" (click)="clickMethod(user.name,user.userId)" type="button" data-toggle="tooltip" data-placement="top" title="Add"><i class="fa fa-table"></i></button>
+                        </div>
+                    </div>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div class="container">
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td>{{user.firstName}} {{user.lastName}}</td>
+                <td>{{user.email}}</td>
+                <td><button (click)="clickMethod(user.email)" type="button" class="btn btn-primary">Add</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div> -->

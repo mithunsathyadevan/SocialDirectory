@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from './login.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../Auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,9 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private loginsService:LoginService,    private router: Router) { }
+  constructor(private loginsService:LoginService,
+        private router: Router,
+        private authService:AuthService) { }
 
   ngOnInit(): void {
     // this.LoginClicked();
@@ -20,9 +23,9 @@ export class LoginComponent implements OnInit {
     {
       this.loginsService.Login(loginForm.value.username,loginForm.value.password).subscribe((data) => {
         if (data.isSuccess) {
-          sessionStorage.setItem('token', data.token);
-          this.router.navigate(['/matchfinder']);
-          
+          localStorage.setItem('token', data.token);
+          this.router.navigate(['/contact']);
+          this.authService.updateData(true);
         }
       }
       );

@@ -11,5 +11,6 @@ namespace SocialDirectoryContracts.UserManagement
         Task<ResponseViewModel> RegisterUser(UserRegisterModel userRegisterModel);
         string EncodePassword(string pass);
         Task<ResponseViewModel> Login(string username, string password);
+        Task<UserDetailsModel> GetUserDetails(int userId);
     }
 }

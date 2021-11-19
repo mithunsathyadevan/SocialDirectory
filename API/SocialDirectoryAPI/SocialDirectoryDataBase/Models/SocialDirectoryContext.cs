@@ -23,8 +23,40 @@ namespace SocialDirectoryDataBase.Models
         public virtual DbSet<UserDetail> UserDetails { get; set; }
         public virtual DbSet<UserInterestMapping> UserInterestMappings { get; set; }
 
+   
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            
+
+            modelBuilder.Entity<ContactList>(entity =>
+            {
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.ContactLists)
+                    .HasForeignKey(d => d.UserId)
+                    .HasConstraintName("FK_ContactList_UserDetails");
+            });
+
+            modelBuilder.Entity<Login>(entity =>
+            {
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.Logins)
+                    .HasForeignKey(d => d.UserId)
+                    .HasConstraintName("FK_Login_UserDetails");
+            });
+
+            modelBuilder.Entity<UserInterestMapping>(entity =>
+            {
+                entity.HasOne(d => d.Interest)
+                    .WithMany(p => p.UserInterestMappings)
+                    .HasForeignKey(d => d.InterestId)
+                    .HasConstraintName("FK_UserInterestMapping_Interests");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.UserInterestMappings)
+                    .HasForeignKey(d => d.UserId)
+                    .HasConstraintName("FK_UserInterestMapping_UserDetails");
+            });
 
             OnModelCreatingPartial(modelBuilder);
         }

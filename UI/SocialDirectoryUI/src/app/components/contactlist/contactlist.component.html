@@ -1,0 +1,93 @@
+<!-- <br><br>
+<h3 class="p-3 text-center" style="text-align: center;">Contact List</h3>
+<div class="page-content page-container" id="page-content">
+    <div class="padding">
+        <div class="row">
+            <div class="col-sm-6" *ngFor="let user of users">
+                <div class="list list-row block">
+                    <div class="list-item" data-id="19">
+                        <div><a href="#" data-abc="true"><span class="w-48 avatar gd-warning">{{user.shortName}}</span></a></div>
+                        <div class="flex" style="    width: 100%;"> <a href="#" class="item-author text-color" data-abc="true">{{user.name}}</a>
+                            <div class="item-except text-muted text-sm h-1x">{{user.email}}</div>
+                        </div>
+                        <div style="">
+                        <div class="no-wrap" >
+                            <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
+                        </div>
+                    </div>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<div class="container">
+    <div class="main-body">
+    
+          <!-- Breadcrumb -->
+     <br><br>
+          <!-- /Breadcrumb -->
+    
+          <div class="row gutters-sm">
+            <div class="col-md-4 mb-3">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex flex-column align-items-center text-center">
+                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                    <div class="mt-3">
+                      <h4>{{userDetails.name}}</h4>
+                      <p class="text-secondary mb-1">{{userDetails.email}}</p>
+                      <p class="text-muted font-size-sm">{{userDetails.location}}</p>
+                     
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h2>Interests</h2>
+              <div class="card mt-3" *ngIf="interst.length>0">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap" *ngFor="let inter of interst">
+                    
+                    <span class="text-secondary">{{inter.interestName}}</span>
+                    <button class="btn"(click)="DeleteInterest(inter.interestId)"><i class="fa fa-trash"></i></button>
+                  </li>
+                  
+                  
+                </ul>
+              </div>
+              <select name="cars" id="cars" style="height: 33px;color: cornflowerblue;" [(ngModel)]="selectedInterest">
+                <option  value=null>Interests</option>
+                <option  *ngFor="let list of interestList">{{list.name}}</option>
+               
+              </select>
+              <button type="button" style="    margin-left: 20%;" (click)="AddInterest()" class="btn btn-primary">Add</button>
+              
+            </div>
+            <div class="col-md-8">
+             <h1>Contacts</h1>
+<br>
+                <div class="row">
+                    <div class="col-sm-6" *ngFor="let user of users">
+                        <div class="list list-row block">
+                            <div class="list-item" data-id="19">
+                                <div><a href="#" data-abc="true"><span class="w-48 avatar gd-warning">{{user.shortName}}</span></a></div>
+                                <div class="flex" style="    width: 100%;"> <a href="#" class="item-author text-color" data-abc="true">{{user.name}}</a>
+                                    <div class="item-except text-muted text-sm h-1x">{{user.email}}</div>
+                                </div>
+                                <div >
+                                <div class="no-wrap" >
+                                    <button class="btn" (click)="DeleteContact(user.userId)"><i class="fa fa-trash"></i></button>
+                                </div>
+                            </div>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+          </div>
+
+        </div>
+    </div>
