@@ -107,7 +107,7 @@ namespace SocialDirectoryAPI.Controllers
             int userId = Convert.ToInt32(HttpContext.User.Claims.Where(x => x.Type == "UserId").FirstOrDefault().Value);
             var returnData = new List<MatchResponse>();
             var inter = interest.InterestIds.Select(x => x).ToArray();
-            var data = await _interestContract.GetMatches(inter, userId);
+            var data = await _interestContract.GetMatches(inter, userId,interest.LocationId);
 
             return data.Select(x => new MatchResponse
             {

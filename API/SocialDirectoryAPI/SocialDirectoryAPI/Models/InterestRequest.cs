@@ -12,6 +12,7 @@ namespace SocialDirectoryAPI.Models
             InterestIds = new List<int>();
         }
         public List<int> InterestIds { get; set; }
+        public Nullable<int> LocationId { get; set; }
     }
 
 }

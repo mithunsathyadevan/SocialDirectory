@@ -24,10 +24,10 @@ export class CommonService {
     const url = `${this.apiURL}api/Interest/getinterests?search=${search}`;
     return this.httpClient.get(url);
   }
-  public GetSubInterest(search:any): Observable<any> {
+  public GetSubInterest(search:any,type:string): Observable<any> {
     
    
-    const url = `${this.apiURL}api/Interest/getSubInterests?id=${search}`;
+    const url = `${this.apiURL}api/Interest/getSubInterests?id=${search}&&type=${type}`;
     return this.httpClient.get(url);
   }
   public GetMatches(obj:any): Observable<any> {

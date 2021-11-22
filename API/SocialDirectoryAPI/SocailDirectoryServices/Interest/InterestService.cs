@@ -29,10 +29,10 @@ namespace SocailDirectoryServices.Interest
             return returnData;
         }
 
-        public async Task<List<string>> GetLocations(string search)
+        public async Task<List<Tuple<int,string>>> GetLocations(string search)
         {
-            var dataSource = await _context.UserDetails.AsNoTracking().Where(x => x.LocationName.Contains(search))
-                .Select(x => x.LocationName).ToListAsync();
+            var dataSource = await _context.Locations.AsNoTracking().Where(x => x.LocationName.Contains(search))
+                .Select(x =>Tuple.Create(x.Id, x.LocationName)).ToListAsync();
             return dataSource;
 
 
@@ -47,6 +47,24 @@ namespace SocailDirectoryServices.Interest
                 InterestName = x.InterestName
             }).ToListAsync();
             return returnData;
+        }
+        public async Task<List<SocailDirectoryModels.Models.Interest>> GetSubInterestsByLocation(int locationId)
+        {
+            List<SocailDirectoryModels.Models.Interest> returnData = new List<SocailDirectoryModels.Models.Interest>();
+            var dataSource = from user in _context.UserDetails
+                             join map in _context.UserInterestMappings on
+user.UserId equals map.UserId
+                             where user.LocationId == locationId
+                             join interest in _context.Interests
+on map.InterestId equals interest.Id
+                             where interest.ParentId == null
+                             select new
+SocailDirectoryModels.Models.Interest
+                             {
+                                 Id = interest.Id,
+                                 InterestName = interest.InterestName
+                             };
+            return dataSource.Distinct().ToList();
         }
         public async Task<List<SocailDirectoryModels.Models.Interest>> GetAllInterest()
         {
@@ -102,7 +120,7 @@ map.InterestId equals interest.Id
 
             return returnData;
         }
-        public async Task<List<MatchesModel>> GetMatches(int[] interests, int userId)
+        public async Task<List<MatchesModel>> GetMatches(int[] interests, int userId,int? locationId)
         {
 
             var returnData = from map in _context.UserInterestMappings
@@ -110,7 +128,8 @@ map.InterestId equals interest.Id
 on map.InterestId equals interest.Id
                              join user in _context.UserDetails on map.UserId
 equals user.UserId
-                             where user.UserId != userId && interests.Contains(interest.Id)
+                             where user.UserId != userId && interests.Contains(interest.Id) &&
+                             (locationId==null ||user.LocationId==locationId)
                              select new MatchesModel
                              {
                                  FirstName = user.FirstName,

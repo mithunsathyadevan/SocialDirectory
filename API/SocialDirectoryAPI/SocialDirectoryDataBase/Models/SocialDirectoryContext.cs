@@ -19,15 +19,16 @@ namespace SocialDirectoryDataBase.Models
 
         public virtual DbSet<ContactList> ContactLists { get; set; }
         public virtual DbSet<Interest> Interests { get; set; }
+        public virtual DbSet<Location> Locations { get; set; }
         public virtual DbSet<Login> Logins { get; set; }
         public virtual DbSet<UserDetail> UserDetails { get; set; }
         public virtual DbSet<UserInterestMapping> UserInterestMappings { get; set; }
 
-   
+     
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            
+          
 
             modelBuilder.Entity<ContactList>(entity =>
             {
@@ -43,6 +44,14 @@ namespace SocialDirectoryDataBase.Models
                     .WithMany(p => p.Logins)
                     .HasForeignKey(d => d.UserId)
                     .HasConstraintName("FK_Login_UserDetails");
+            });
+
+            modelBuilder.Entity<UserDetail>(entity =>
+            {
+                entity.HasOne(d => d.Location)
+                    .WithMany(p => p.UserDetails)
+                    .HasForeignKey(d => d.LocationId)
+                    .HasConstraintName("FK_UserDetails_Location");
             });
 
             modelBuilder.Entity<UserInterestMapping>(entity =>

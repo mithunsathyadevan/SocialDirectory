@@ -35,7 +35,7 @@ export class ContactlistComponent implements OnInit {
     
     this.contactService.DeleteInterests(Id).subscribe((data) => {
   
-     
+      this.GetAllInterest();
       this.GetUsersInterests();
    
    });
@@ -55,10 +55,11 @@ export class ContactlistComponent implements OnInit {
   {
     let interest = this.interestList.find((user: any) => user.name === this.selectedInterest);
     this.contactService.SaveInterests(interest.id).subscribe((data) => {
-  debugger
+  
      if(!data.isSuccess)
      {
-       debugger
+       
+       this.GetAllInterest();
       this.GetUsersInterests();
      }
      else{

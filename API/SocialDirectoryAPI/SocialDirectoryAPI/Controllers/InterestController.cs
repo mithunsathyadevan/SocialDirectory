@@ -35,31 +35,51 @@ namespace SocialDirectoryAPI.Controllers
             }).ToList());
             returnData.AddRange(location.Select(x => new MasterSearchDropDown
             {
-                Name = x,
+                Id=x.Item1,
+                Name = x.Item2,
                 Type = "Location",
                 Selected = true
             }).ToList());
             return returnData;
         }
         [HttpGet("getSubInterests")]
-        public async Task<List<MasterSearchDropDown>> GetSubInterest(int id)
+        public async Task<List<MasterSearchDropDown>> GetSubInterest(int id,string type)
         {
             var returnData = new List<MasterSearchDropDown>();
-            var data = await _interestContract.GetSubInterests(id);
-            return data.Select(x => new MasterSearchDropDown
+            if(type== "Interest")
             {
-                Id = x.Id,
-                Name = x.InterestName,
-                Type = "Interest",
-                Selected=true
-            }).ToList();
+                var data = await _interestContract.GetSubInterests(id);
+                return data.Select(x => new MasterSearchDropDown
+                {
+                    Id = x.Id,
+                    Name = x.InterestName,
+                    Type = "Interest",
+                    Selected = true
+                }).ToList();
+            }
+            else
+            {
+                var data = await _interestContract.GetSubInterestsByLocation(id);
+                return data.Select(x => new MasterSearchDropDown
+                {
+                    Id = x.Id,
+                    Name = x.InterestName,
+                    Type = "Interest",
+                    Selected = true
+                }).ToList();
+            }
+         
         }
         [HttpGet("getAllInterest")]
+        [Authorize]
         public async Task<List<MasterSearchDropDown>> GetAllInterest()
         {
             var returnData = new List<MasterSearchDropDown>();
             var data = await _interestContract.GetAllInterest();
-            return data.Select(x => new MasterSearchDropDown
+            int userId = Convert.ToInt32(HttpContext.User.Claims.Where(x => x.Type == "UserId").FirstOrDefault().Value);
+            var usersInterest = await _interestContract.GetUserInterest(userId);
+            var interest = usersInterest.Select(x => x.Id).ToArray();
+            return data.Where(x=> !interest.Contains(x.Id)). Select(x => new MasterSearchDropDown
             {
                 Id = x.Id,
                 Name = x.InterestName,

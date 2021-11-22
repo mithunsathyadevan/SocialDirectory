@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
   login=false;
   dropdown :any;
   subDropDown:any;
+  locationID=null;
  selectionList : number[] = [];
  
   title = 'SocialDirectoryUI';
@@ -54,7 +55,7 @@ export class AppComponent implements OnInit {
   }
   loadList()
   {
-    let objet={InterestIds:this.selectionList}
+    let objet={InterestIds:this.selectionList,locationId:this.locationID}
     this.commmonService.GetMatches(objet).subscribe((data) => {
       if(data)
       {
@@ -83,7 +84,11 @@ export class AppComponent implements OnInit {
       this.router.navigate(['/matchfinder']);
       this.selectionList=[];
       this.selectionList.push(drop.id);
-      this.commmonService.GetSubInterest(drop.id).subscribe((data) => {
+      if(drop.type=="Location")
+        this.locationID=drop.id;
+        else
+        this.locationID=null;
+      this.commmonService.GetSubInterest(drop.id,drop.type).subscribe((data) => {
   
         this. subDropDown=data;
         

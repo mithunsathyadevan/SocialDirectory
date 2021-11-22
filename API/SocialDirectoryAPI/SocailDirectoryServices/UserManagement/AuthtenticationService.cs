@@ -117,9 +117,16 @@ namespace SocailDirectoryServices.UserManagement
             if(userDetails!=null)
             {
                 response.Email = userDetails.Email;
-                response.Location = userDetails.LocationName;
                 response.UserId = userDetails.UserId;
                 response.Name = string.Format("{0} {1}", userDetails.FirstName, userDetails.LastName);
+                if(userDetails.Location==null)
+                {
+                    var location = _context.Locations.Where(x => x.Id == userDetails.LocationId).FirstOrDefault();
+                    if (location != null)
+                        response.Location = location.LocationName;
+                }
+                else
+                    response.Location = userDetails.Location.LocationName;
             }
                
 
