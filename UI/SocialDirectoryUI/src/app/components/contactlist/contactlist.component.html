@@ -59,7 +59,18 @@
                   <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap" *ngFor="let inter of interst">
                     
                     <span  class="badge badge-info" >{{inter.interestName}}</span>
-                    <button class="btn"(click)="DeleteInterest(inter.interestId)"><i class="fa fa-trash"></i></button>
+                    <button
+                    class="btn" 
+mwlConfirmationPopover
+[popoverMessage]="popoverMessage"
+[popoverTitle]="popoverTitle"
+placement="left"
+(confirm)="DeleteInterest(inter.interestId)"
+(cancel)=" true"
+>
+<i class="fa fa-trash"></i>
+</button> 
+                    <!-- <button class="btn"(click)="DeleteInterest(inter.interestId)"><i class="fa fa-trash"></i></button> -->
                   </li>
                   
                   
@@ -83,7 +94,19 @@
                                 </div>
                                 <div >
                                 <div class="no-wrap" >
-                                    <button class="btn" (click)="DeleteContact(user.userId)"><i class="fa fa-trash"></i></button>
+                                  <button
+                                  class="btn" 
+      mwlConfirmationPopover
+      [popoverMessage]="popoverMessage"
+      [popoverTitle]="popoverTitle"
+      placement="left"
+      (confirm)="DeleteContact(user.userId)"
+      (cancel)=" true"
+    >
+    <i class="fa fa-trash"></i>
+    </button>   <!-- [popoverTitle]="popoverTitle"
+      [popoverMessage]="popoverMessage" -->
+                                    <!-- <button class="btn" (click)="DeleteContact(user.userId)"><i class="fa fa-trash"></i></button> -->
                                 </div>
                             </div>
                             </div>

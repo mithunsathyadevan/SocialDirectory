@@ -11,6 +11,8 @@ export class ContactlistComponent implements OnInit {
   selectedInterest=null;
   userDetails:any;
   interst:any;
+  popoverMessage="Are you sure you want to delete this item?";
+  popoverTitle="Confirmation"
   interestList:any;
   constructor(private contactService:ContactlistService) { }
 

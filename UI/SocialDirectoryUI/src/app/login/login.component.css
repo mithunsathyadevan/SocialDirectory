@@ -148,3 +148,19 @@ a{color:inherit;text-decoration:none}
 .foot-lnk{
 	text-align:center;
 }
+.dd {
+	height: 100%;
+  }
+  
+  .dd2 {
+	height: 83%;
+  }
+  .dd3 {
+	height: 980px
+	
+	;    box-shadow: none;
+  } 
+  .dd4 {
+	height: 670px
+	;
+  }  

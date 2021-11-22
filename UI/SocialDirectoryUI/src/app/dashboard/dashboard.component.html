@@ -1,5 +1,8 @@
 <br><br>
 <h3 class="p-3 text-center" style="text-align: center;">Matches</h3>
+<div *ngIf="users.length==0" class="alert alert-secondary" role="alert">
+    No Users Found!
+   </div>
 <div class="page-content page-container" id="page-content">
     <div class="padding">
         <div class="alert alert-success" *ngIf="Success===true">

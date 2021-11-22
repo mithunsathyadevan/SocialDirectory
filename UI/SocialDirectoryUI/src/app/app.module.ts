@@ -11,6 +11,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './Auth/token-interceptor.service';
 import { ContactlistComponent } from './components/contactlist/contactlist.component';
 import { AuthService } from './Auth/auth.service';
+import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,10 @@ import { AuthService } from './Auth/auth.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,HttpClientModule,FormsModule,CommonModule,ReactiveFormsModule 
+    AppRoutingModule,HttpClientModule,FormsModule,CommonModule,ReactiveFormsModule ,
+    ConfirmationPopoverModule.forRoot({
+      confirmButtonType:"danger"
+    })
   ],
   providers: [
     {

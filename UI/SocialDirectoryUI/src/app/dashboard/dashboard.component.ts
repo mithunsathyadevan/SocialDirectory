@@ -38,6 +38,7 @@ export class DashboardComponent implements OnInit {
         if (data.isSuccess) {
           this.Success = data.isSuccess;
           this.Failed=false;
+          this.loadData();
 
         }
         else 

@@ -9,13 +9,26 @@ import { AuthService } from '../Auth/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  bntStyle='dd';
+  heightStyle='dd4'
   constructor(private loginsService:LoginService,
         private router: Router,
         private authService:AuthService) { }
 
   ngOnInit(): void {
     // this.LoginClicked();
+  }
+  Style(styleVar:string)
+  {
+    this.bntStyle=styleVar;
+    if(styleVar=='dd2')
+    {
+      this.heightStyle='dd3'
+    }
+    else
+    {
+      this.heightStyle='dd4'
+    }
   }
   LoginClicked(loginForm:any) {
     
