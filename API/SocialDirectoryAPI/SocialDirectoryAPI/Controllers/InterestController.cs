@@ -23,14 +23,23 @@ namespace SocialDirectoryAPI.Controllers
         [HttpGet("getinterests")]
         public async Task<List<MasterSearchDropDown>> GetMasterInterest(string search)
         {
-            var returnData = new List<MasterSearchDropDown>();
+            List<MasterSearchDropDown> returnData = new List<MasterSearchDropDown>();
             var data= await _interestContract.GetMasterInterests(search);
-            return data.Select(x => new MasterSearchDropDown
+            var location = await _interestContract.GetLocations(search);
+            returnData.AddRange( data.Select(x => new MasterSearchDropDown
             {
                 Id=x.Id,
                 Name=x.InterestName,
-                Type="Interest"
-            }).ToList();
+                Type="Interest",
+                Selected=true
+            }).ToList());
+            returnData.AddRange(location.Select(x => new MasterSearchDropDown
+            {
+                Name = x,
+                Type = "Location",
+                Selected = true
+            }).ToList());
+            return returnData;
         }
         [HttpGet("getSubInterests")]
         public async Task<List<MasterSearchDropDown>> GetSubInterest(int id)
@@ -41,7 +50,8 @@ namespace SocialDirectoryAPI.Controllers
             {
                 Id = x.Id,
                 Name = x.InterestName,
-                Type = "Interest"
+                Type = "Interest",
+                Selected=true
             }).ToList();
         }
         [HttpGet("getAllInterest")]

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
+import { CommonService } from '../services/common.service';
 import { DashboardService } from './dashboard.service';
 @Component({
   selector: 'app-dashboard',
@@ -10,10 +12,14 @@ export class DashboardComponent implements OnInit {
   Success: boolean = false;
   Failed: boolean = false;
   Message:string='';
-  constructor(private dashBoardService: DashboardService) { }
+  constructor(private dashBoardService: DashboardService,private commonService:CommonService) { }
 
   ngOnInit(): void {
     this.loadData();
+    this.commonService.getData().subscribe(data => {
+      
+      this.users = data;
+    })
   }
   loadData() {
     this.dashBoardService.LoadData().subscribe((data) => {
@@ -50,5 +56,6 @@ export class DashboardComponent implements OnInit {
       );
     }
   }
+ 
 
 }

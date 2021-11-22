@@ -12,6 +12,8 @@ export class AppComponent implements OnInit {
   login=false;
   dropdown :any;
   subDropDown:any;
+ selectionList : number[] = [];
+ 
   title = 'SocialDirectoryUI';
   IsAuthenticated:any=false;
   ngOnInit(): void {
@@ -33,28 +35,63 @@ export class AppComponent implements OnInit {
     }
     );
   }
+  Apply()
+  {
+    
+    this.selectionList=[];
+    this.subDropDown.forEach((element:any) => {
+      if( element.selected==true)
+      {
+          this.selectionList.push(element.id);
+
+      }
+    });
+   
+     this.loadList();
+    
+ 
+    this.subDropDown;
+  }
+  loadList()
+  {
+    let objet={InterestIds:this.selectionList}
+    this.commmonService.GetMatches(objet).subscribe((data) => {
+      if(data)
+      {
+        this.commmonService.updateData(data); 
+      }
+   
+   
+   }
+   );
+  }
+ 
   public saveCode(e:any): void {
-   debugger
+   
   }
   
   SearchButtonClicked(seachForm:any)
   {
-    debugger
-    let user = this.dropdown.find((user: any) => user.name === seachForm.value.search);
-    if(user===undefined)
+    
+    let drop = this.dropdown.find((user: any) => user.name === seachForm.value.search);
+    if(drop===undefined)
     {
       this. subDropDown=[];
     }
     else
     {
-      this.commmonService.GetSubInterest(user.id).subscribe((data) => {
+      this.router.navigate(['/matchfinder']);
+      this.selectionList=[];
+      this.selectionList.push(drop.id);
+      this.commmonService.GetSubInterest(drop.id).subscribe((data) => {
   
         this. subDropDown=data;
-        this.router.navigate(['/matchfinder']);
-         
+        
+        this.Apply();
      
      }
      );
+     
     }
     
   }

@@ -61,9 +61,9 @@
 <div *ngIf="subDropDown?.length > 0" [hidden]="false" class="borderClass" style="margin-top: 10px;" ><br /><br /><br />
   <div style="text-align: center;" >
     <span *ngFor="let item of subDropDown" >
-  <input type="checkbox" />&#160;{{item.name}}
+  <input type="checkbox"   [(ngModel)]="item.selected"/>&#160;{{item.name}}
     </span>
-  <button type="button" style="margin-left: 10px;" class="btn btn-primary">Apply</button>
+  <button type="button" (click)="Apply()" style="margin-left: 10px;" class="btn btn-primary">Apply</button>
 </div></div>
     <!-- logo with tag -->
     <router-outlet></router-outlet>

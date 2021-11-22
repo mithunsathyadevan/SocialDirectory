@@ -49,7 +49,7 @@
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap" *ngFor="let inter of interst">
                     
-                    <span class="text-secondary">{{inter.interestName}}</span>
+                    <span  class="badge badge-info" >{{inter.interestName}}</span>
                     <button class="btn"(click)="DeleteInterest(inter.interestId)"><i class="fa fa-trash"></i></button>
                   </li>
                   
@@ -58,7 +58,7 @@
               </div>
               <select name="cars" id="cars" style="height: 33px;color: cornflowerblue;" [(ngModel)]="selectedInterest">
                 <option  value=null>Interests</option>
-                <option  *ngFor="let list of interestList">{{list.name}}</option>
+                <option   *ngFor="let list of interestList">{{list.name}}</option>
                
               </select>
               <button type="button" style="    margin-left: 20%;" (click)="AddInterest()" class="btn btn-primary">Add</button>
