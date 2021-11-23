@@ -13,5 +13,6 @@ namespace SocialDirectoryAPI.Models
         public string MiddleName { get; set; }
         public string LastName { get; set; }
         public string Password { get; set; }
+        public string Location { get; set; }
     }
 }

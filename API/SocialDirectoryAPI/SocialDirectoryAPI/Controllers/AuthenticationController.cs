@@ -39,7 +39,8 @@ namespace SocialDirectoryAPI.Controllers
                 LastName = requestModel.LastName,
                 MiddleName = requestModel.MiddleName,
                 Password = requestModel.Password,
-                UserName = requestModel.Email
+                UserName = requestModel.Email,
+                Location=requestModel.Location
             };
             return await _authenticate.RegisterUser(user);
         }

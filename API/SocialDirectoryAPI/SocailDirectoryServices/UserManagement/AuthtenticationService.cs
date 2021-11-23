@@ -38,6 +38,7 @@ namespace SocailDirectoryServices.UserManagement
         public async Task<ResponseViewModel> RegisterUser(UserRegisterModel userRegisterModel)
         {
             ResponseViewModel retunModel = new ResponseViewModel();
+            
             var userDetails = new UserDetail
             {
                 CreatedOn = DateTime.UtcNow,
@@ -47,9 +48,24 @@ namespace SocailDirectoryServices.UserManagement
                 MiddleName = userRegisterModel.MiddleName,
                 UserName = userRegisterModel.Email
             };
-            
+            if (_context.Locations.Any(x => x.LocationName.ToLower() == userRegisterModel.Location.ToLower()))
+            {
+                var location = _context.Locations.Where(x => x.LocationName.ToLower() == userRegisterModel.Location.ToLower()).First();
+                userDetails.Location = location;
+            }
+            else
+            {
+                Location location = new Location
+                {
+                    CreatedBy = "sa",
+                    CreatedOn = DateTime.UtcNow,
+                    LocationName = userRegisterModel.Location
+                };
+                userDetails.Location = location;
+            }
 
-                var userAlreadyExist = _context.UserDetails.Any(x => x.UserName == userRegisterModel.Email);
+
+            var userAlreadyExist = _context.UserDetails.Any(x => x.UserName == userRegisterModel.Email);
                 if (userAlreadyExist)
                 {
                     retunModel.IsSuccess = false;

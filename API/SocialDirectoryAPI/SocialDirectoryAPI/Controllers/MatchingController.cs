@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SocailDirectoryModels.Models;
 using SocialDirectoryAPI.Models;
+using SocialDirectoryContracts.Contact;
 using SocialDirectoryContracts.Interest;
 using System;
 using System.Collections.Generic;
@@ -18,9 +19,11 @@ namespace SocialDirectoryAPI.Controllers
     public class MatchingController : ControllerBase
     {
         InterestContract _interestContract;
-        public MatchingController(InterestContract interestContract)
+        IContacts _contacts;
+        public MatchingController(InterestContract interestContract, IContacts contacts)
         {
             _interestContract = interestContract;
+            _contacts = contacts;
         }
 
 
@@ -91,7 +94,9 @@ namespace SocialDirectoryAPI.Controllers
                 interest.Rank = rank;
 
             }
-            return usersInterest.OrderByDescending(x=>x.Rank).Select(x => new MatchResponse
+            var contacts = await _contacts.GetContacts(userId);
+            var contactIds = contacts.Select(x => x.UserId).ToArray();
+            return usersInterest.OrderByDescending(x=>x.Rank).Where(x=>!contactIds.Contains(x.UserId)). Select(x => new MatchResponse
             {
                 UserId =x.UserId,
                 FirstName = x.FirstName,
@@ -108,8 +113,10 @@ namespace SocialDirectoryAPI.Controllers
             var returnData = new List<MatchResponse>();
             var inter = interest.InterestIds.Select(x => x).ToArray();
             var data = await _interestContract.GetMatches(inter, userId,interest.LocationId);
-
-            return data.Select(x => new MatchResponse
+            var contacts = await _contacts.GetContacts(userId);
+            var contactIds = contacts.Select(x => x.UserId).ToArray();
+            var dataModel = data.Where(x => !contactIds.Contains(x.UserId)).ToList();
+            return dataModel.Select(x => new MatchResponse
             {
                 UserId = x.UserId,
                 FirstName = x.FirstName,
