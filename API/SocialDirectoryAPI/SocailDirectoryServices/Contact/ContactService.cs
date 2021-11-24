@@ -42,7 +42,7 @@ on contact.ContactId equals user.UserId
                 return new ResponseViewModel
                 {
                     IsSuccess = false,
-                    Message = "Contact Does not Exist"
+                    Message = SocailDirectoryConstants.ContactNotExist
 
                 };
             }
@@ -54,7 +54,7 @@ on contact.ContactId equals user.UserId
                 return new ResponseViewModel
                 {
                     IsSuccess = true,
-                    Message = "Contact Deleted Successfully"
+                    Message = SocailDirectoryConstants.ContactDeleted
 
                 };
             }
@@ -67,7 +67,7 @@ on contact.ContactId equals user.UserId
                 return new ResponseViewModel
                 {
                     IsSuccess = false,
-                    Message = "Contact Already Exist"
+                    Message = SocailDirectoryConstants.ContactExist
 
                 };
             }
@@ -87,7 +87,7 @@ on contact.ContactId equals user.UserId
                 return new ResponseViewModel
                 {
                     IsSuccess = true,
-                    Message = "Contact Added Successfully"
+                    Message = SocailDirectoryConstants.ContactAdded
 
                 };
             }

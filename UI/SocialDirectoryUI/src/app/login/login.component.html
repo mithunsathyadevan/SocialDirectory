@@ -1,62 +1,83 @@
-<div class="login-wrap">
-	<div class="login-html">
-		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
-		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
-		<div class="login-form">
-			<div class="sign-in-htm">
-				<form class="form-horizontal" #loginForm="ngForm" (ngSubmit)="LoginClicked(loginForm)">
-				<div class="group">
-					<label for="user" class="label">Username</label>
-					<input id="user" name="username"  type="text" required class="input" ngModel >
-				</div>
-				<div class="group">
-					<label for="pass" class="label">Password</label>
-					<input id="pass" name="password" type="password" required class="input" data-type="password" ngModel>
-				</div>
-				<div class="group">
-					<input id="check" type="checkbox" class="check" checked>
-					<label for="check"><span class="icon"></span> Keep me Signed in</label>
-				</div>
-				<div class="group">
-					<input type="submit" class="button" value="Sign In">
-				</div>
-				<div class="hr"></div>
-			
-			</form>
-			</div>
-			<div class="sign-up-htm">
-				<form class="form-horizontal" #signUpForm="ngForm" (ngSubmit)="SignUpClicked(signUpForm)">
-				<div class="group">
-					<label for="email" class="label">Email</label>
-					<input id="email" name="email" type="email" class="input" required ngModel>
-				</div>
-				<div class="group">
-					<label for="password1" class="label">Password</label>
-					<input id="password1" name="password1"  type="password" class="input" data-type="password" required ngModel>
-				</div>
-				<div class="group">
-					<label for="password2" class="label">Repeat Password</label>
-					<input id="password2"  name="password2" type="password" class="input" data-type="password" required ngModel>
-				</div>
-				<div class="group">
-					<label for="FirstName" class="label">First Name</label>
-					<input id="FirstName"  name="FirstName"  type="text" class="input" required ngModel>
-				</div>
-				<div class="group">
-					<label for="MiddleName" class="label">Middle Name</label>
-					<input id="MiddleName" name="MiddleName" type="text" class="input" ngModel>
-				</div>
-				<div class="group">
-					<label for="LastName" class="label">Last Name</label>
-					<input id="LastName" name="LastName" type="text" class="input" required ngModel>
-				</div>
-				<div class="group">
-					<input type="submit" class="button" value="Sign Up">
-				</div>
-				<div class="hr"></div>
-			</form>
-			</div>
-		</div>
-	</div>
-</div>
+<div class="login-wrap" [ngClass]="[heightStyle]">
+  <div class="login-html" [ngClass]="[bntStyle]">
+    <input id="tab-1" type="radio" name="tab" (click)="style('dd')" class="sign-in" checked><label for="tab-1"
+      class="tab">Sign In</label>
+    <input id="tab-2" type="radio" name="tab" (click)="style('dd2')" class="sign-up"><label for="tab-2" class="tab">Sign
+      Up</label>
+    <div class="login-form">
+      <div class="sign-in-htm">
+        <form class="form-horizontal" #loginForm="ngForm" (ngSubmit)="loginClicked(loginForm)">
+          <div class="group">
+            <label for="user" class="label">Username</label>
+            <input id="user" name="username" type="text" required class="input" ngModel>
+            <p *ngIf="!loginForm.controls['username'].valid && loginForm.submitted" class="validation">UserName is
+              required</p>
+          </div>
+          <div class="group">
+            <label for="pass" class="label">Password</label>
+            <input id="pass" name="password" type="password" required class="input" data-type="password" ngModel>
+            <p *ngIf="!loginForm.controls['password'].valid && loginForm.submitted" class="validation">Password is
+              required</p>
+          </div>
+          <div class="group">
+            <input id="check" type="checkbox" class="check" checked>
+            <label for="check"><span class="icon"></span> Keep me Signed in</label>
+          </div>
+          <div class="group">
+            <input type="submit" class="button" value="Sign In">
+          </div>
+          <div class="hr"></div>
 
+        </form>
+      </div>
+      <div class="sign-up-htm">
+        <form class="form-horizontal" #signUpForm="ngForm" (ngSubmit)="signUpClicked(signUpForm)">
+          <div class="group">
+            <label for="email" class="label">Email</label>
+            <input id="email" name="email" type="email" class="input" required ngModel>
+            <p *ngIf="!signUpForm.controls['email'].valid && signUpForm.submitted" class="validation">Email is required
+            </p>
+          </div>
+          <div class="group">
+            <label for="password1" class="label">Password</label>
+            <input id="password1" name="password1" type="password" class="input" data-type="password" required ngModel>
+            <p *ngIf="!signUpForm.controls['password1'].valid && signUpForm.submitted" class="validation">Password is
+              required</p>
+          </div>
+          <div class="group">
+            <label for="password2" class="label">Repeat Password</label>
+            <input id="password2" name="password2" type="password" class="input" data-type="password" required ngModel>
+            <p *ngIf="!signUpForm.controls['password2'].valid && signUpForm.submitted" class="validation">Password is
+              required</p>
+          </div>
+          <div class="group">
+            <label for="FirstName" class="label">First Name</label>
+            <input id="FirstName" name="FirstName" type="text" class="input" required ngModel>
+            <p *ngIf="!signUpForm.controls['FirstName'].valid && signUpForm.submitted" class="validation">First Name is
+              required</p>
+          </div>
+          <div class="group">
+            <label for="MiddleName" class="label">Middle Name</label>
+            <input id="MiddleName" name="MiddleName" type="text" class="input" ngModel>
+          </div>
+          <div class="group">
+            <label for="LastName" class="label">Last Name</label>
+            <input id="LastName" name="LastName" type="text" class="input" required ngModel>
+            <p *ngIf="!signUpForm.controls['LastName'].valid && signUpForm.submitted" class="validation">Last Name is
+              required</p>
+          </div>
+          <div class="group">
+            <label for="location" class="label">Location</label>
+            <input id="Location" name="Location" type="text" class="input" required ngModel>
+            <p *ngIf="!signUpForm.controls['Location'].valid && signUpForm.submitted" class="validation">Location is
+              required</p>
+          </div>
+          <div class="group">
+            <input type="submit" class="button" value="Sign Up">
+          </div>
+          <div class="hr"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

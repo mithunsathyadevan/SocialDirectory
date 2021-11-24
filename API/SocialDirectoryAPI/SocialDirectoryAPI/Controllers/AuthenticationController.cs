@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using SocailDirectoryModels.Models;
+using SocialDirectoryAPI.Contract;
 using SocialDirectoryAPI.Models;
 using SocialDirectoryContracts.UserManagement;
 using System;
@@ -17,17 +18,17 @@ namespace SocialDirectoryAPI.Controllers
     public class AuthenticationController : ControllerBase
     {
         IAuthenticateContract _authenticate;
-
-        private readonly ILogger<AuthenticationController> _logger;
+        IUserDetailsContract _userDetails;
         public AuthenticationController
             (
             IAuthenticateContract authenticateContract,
-            ILogger<AuthenticationController> logger
+            IUserDetailsContract userDetails
             )
         {
             _authenticate = authenticateContract;
-            _logger = logger;
+            _userDetails = userDetails;
         }
+
         [HttpPost("RegisterUser")]
         public async Task<ResponseViewModel> RegisterUser(UserRegisterRequestModel requestModel)
         {
@@ -39,10 +40,12 @@ namespace SocialDirectoryAPI.Controllers
                 LastName = requestModel.LastName,
                 MiddleName = requestModel.MiddleName,
                 Password = requestModel.Password,
-                UserName = requestModel.Email
+                UserName = requestModel.Email,
+                Location=requestModel.Location
             };
             return await _authenticate.RegisterUser(user);
         }
+
         [HttpPost("Login")]
         public async Task<LoginResponseModel> Login(LoginModel loginModel)
         {
@@ -62,21 +65,22 @@ namespace SocialDirectoryAPI.Controllers
             }
             return returnData;
         }
+
         [HttpGet("GetUserDetails")]
         [Authorize]
         public async Task<UserDetailsResponseModel> GetUserDetails()
         {
             UserDetailsResponseModel returnData = new UserDetailsResponseModel();
-            int userId = Convert.ToInt32(HttpContext.User.Claims.Where(x => x.Type == "UserId").FirstOrDefault().Value);
-            var data = await _authenticate.GetUserDetails(userId);
+
+            var user = _userDetails.GetUserDetails(HttpContext);
+            var data = await _authenticate.GetUserDetails(user.UserId);
             if(data!=null)
             {
                 returnData.Email = data.Email;
                 returnData.Name = data.Name;
                 returnData.Location = data.Location;
                 returnData.UserId = data.UserId;
-            }
-            
+            }            
             return returnData;
         }
 

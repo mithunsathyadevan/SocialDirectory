@@ -3,8 +3,6 @@
     position: absolute;
     width: 100%;
 }
-      
-/* styling navlist anchor element */
 #navlist a {
     float:left;
     display: block;
@@ -15,9 +13,9 @@
     font-size: 15px;
 }
 .borderClass{
-    border-color: rgb(0, 174, 255);  
-    border-width: 5px;  
-}  
+    border-color: rgb(0, 174, 255);
+    border-width: 5px;
+}
 .navlist-right{
     float:right;
 }
@@ -27,7 +25,6 @@
     background-color: #ddd;
     color: black;
 }
-      
 /* styling search bar */
 .search input[type=text]{
     width:300px;
@@ -35,12 +32,10 @@
     border-radius:25px;
     border: none;
 }
-      
 .search{
     float:inherit; text-align: center;
     margin:7px;
 }
-      
 .search button{
     background-color: #0074D9;
     color: #f2f2f2;

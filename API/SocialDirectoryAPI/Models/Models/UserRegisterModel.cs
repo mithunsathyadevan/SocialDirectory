@@ -14,5 +14,6 @@ namespace SocailDirectoryModels.Models
         public string Password { get; set; }
         public string EncryptedPassword { get; set; }
         public int UserId { get; set; }
+        public string Location { get; set; }
     }
 }

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SocailDirectoryModels.Models;
+using SocialDirectoryAPI.Contract;
 using SocialDirectoryAPI.Models;
 using SocialDirectoryContracts.Contact;
 using System;
@@ -16,36 +17,36 @@ namespace SocialDirectoryAPI.Controllers
     public class ContactController : ControllerBase
     {
         IContacts _contacts;
-        public ContactController(IContacts contacts)
+        IUserDetailsContract _userDetails;
+        public ContactController(IContacts contacts, IUserDetailsContract userDetails)
         {
             _contacts = contacts;
+            _userDetails = userDetails;
         }
+
         [HttpGet("Save")]
         [Authorize]
         public async Task<ResponseViewModel> RegisterUser(int contactId)
         {
-            int userId = Convert.ToInt32(HttpContext.User.Claims.Where(x => x.Type == "UserId").FirstOrDefault().Value);
-
-
-            return await _contacts.SaveContact(userId, contactId);
+            var user = _userDetails.GetUserDetails(HttpContext);
+            return await _contacts.SaveContact(user.UserId, contactId);
         }
+
         [HttpGet("Delete")]
         [Authorize]
         public async Task<ResponseViewModel> DeleteContact(int contactId)
         {
-            int userId = Convert.ToInt32(HttpContext.User.Claims.Where(x => x.Type == "UserId").FirstOrDefault().Value);
-
-
-            return await _contacts.DeleteContact(userId, contactId);
+            var user = _userDetails.GetUserDetails(HttpContext);
+            return await _contacts.DeleteContact(user.UserId, contactId);
         }
+
         [HttpGet("ListContacts")]
         [Authorize]
         public async Task<List<ContactResponse>> GetContacts()
         {
+            var user = _userDetails.GetUserDetails(HttpContext);
+            var data = await _contacts.GetContacts(user.UserId);
 
-            int userId= Convert.ToInt32(HttpContext.User.Claims.Where(x => x.Type == "UserId").FirstOrDefault().Value); 
-            var data= await _contacts.GetContacts(userId);
-          
             return data.Select(x => new ContactResponse
             {
                 UserId = x.UserId,

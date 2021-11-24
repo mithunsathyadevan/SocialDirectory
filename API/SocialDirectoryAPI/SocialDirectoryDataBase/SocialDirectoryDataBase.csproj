@@ -16,4 +16,8 @@
     <ProjectReference Include="..\Models\SocailDirectoryModels.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+
 </Project>
