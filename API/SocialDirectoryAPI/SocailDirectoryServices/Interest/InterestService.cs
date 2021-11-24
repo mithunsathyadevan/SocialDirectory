@@ -102,21 +102,14 @@ SocailDirectoryModels.Models.Interest
         public async Task<List<MatchesModel>> GetMatches()
         {
             List<MatchesModel> returnData = new List<MatchesModel>();
-            var data = from user in _context.UserDetails
-                       join map in _context.UserInterestMappings on
-user.UserId equals map.UserId
-                       join interest in _context.Interests on
-map.InterestId equals interest.Id
-                       select new MatchesModel
-                       {
-                           UserId = user.UserId,
-                           FirstName = user.FirstName,
-                           LastName = user.LastName,
-                           Email = user.Email,
-                           InterestId= interest.Id
-
-                       };
-            returnData = await data.ToListAsync();
+            var data = _context.Set<SP_MatchesModel>().FromSqlRaw("GetMatches").ToList();
+            returnData =  data.Select(x=>new MatchesModel {
+            InterestId=x.InterestId,
+            UserId=x.UserId,
+            Email=x.Email,
+            FirstName=x.FirstName,
+            LastName=x.LastName
+            }).ToList();
 
             return returnData;
         }

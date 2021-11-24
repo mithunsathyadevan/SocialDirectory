@@ -1,7 +1,6 @@
 ﻿using System;
+using System.Linq;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
-
 #nullable disable
 
 namespace SocialDirectoryDataBase.Models
@@ -23,9 +22,9 @@ namespace SocialDirectoryDataBase.Models
         public virtual DbSet<Login> Logins { get; set; }
         public virtual DbSet<UserDetail> UserDetails { get; set; }
         public virtual DbSet<UserInterestMapping> UserInterestMappings { get; set; }
+        public virtual DbSet<SP_MatchesModel> MatchesModels { get; set; }
 
-     
-
+       
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
           

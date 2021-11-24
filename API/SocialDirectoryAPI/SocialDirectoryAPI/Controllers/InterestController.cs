@@ -46,10 +46,10 @@ namespace SocialDirectoryAPI.Controllers
             return returnData;
         }
         [HttpGet("getSubInterests")]
-        public async Task<List<MasterSearchDropDown>> GetSubInterest(int id,string type)
+        public async Task<List<MasterSearchDropDown>> GetSubInterest(int id, string type="Interest")
         {
             var returnData = new List<MasterSearchDropDown>();
-            if(type== "Interest")
+            if(type== SocailDirectoryConstants.Interest)
             {
                 var data = await _interestContract.GetSubInterests(id);
                 return data.Select(x => new MasterSearchDropDown
