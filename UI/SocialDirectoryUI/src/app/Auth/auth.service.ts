@@ -5,7 +5,6 @@ import { Subject } from 'rxjs';
 })
 export class AuthService {
   public getToken() {
-    
     const userJson = localStorage.getItem('token');
     return userJson;
   }
