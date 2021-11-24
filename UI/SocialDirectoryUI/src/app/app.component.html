@@ -1,76 +1,48 @@
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"/>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" />
 <!DOCTYPE html>
 <html>
-  
+
 <head>
-    <title>
-        Create a Search Bar using HTML and CSS
-    </title>
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1">
+  <title>
+    Create a Search Bar using HTML and CSS
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-  
+
 <body>
-    
-
-    
   <div>
-    <!-- Navbar items -->
     <div id="navlist">
-        <!-- <a href="#">Home</a>
-        <a href="#">Our Products</a>
-        <a href="#">Careers</a>
-        <a href="#">About Us</a>
-        <a href="#">Contact Us</a> -->
-          
-        <!-- search bar right align -->
-        <a 
-        href="/contact">Home</a>
-        <a href="/matchfinder"*ngIf=" IsAuthenticated">Add Contacts</a>
-        <a style="float: right;" *ngIf=" IsAuthenticated" (click)="Logout()"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</a>
-        <div class="search" style="width: 90%;" >
-            <form #seachForm="ngForm" (ngSubmit)="SearchButtonClicked(seachForm)">
-                <input type="text" [hidden]="false" 
-                    placeholder=" Search Courses"  autocomplete="off"
-                    name="search" list="dynmicUserIds" (keydown)="onKeyDownEvent($event)" ngModel>
-                  
-                
-                     
-                       
-                            <datalist id="dynmicUserIds">
-                            <option *ngFor="let item of dropdown"  [value]="item.name">{{item.name}}</option>
-                        </datalist>
-                     
-                    
-                <button [hidden]="false" type="submit">
-                    <i class="fa fa-search" 
-                        style="font-size: 18px;">
-                    </i>
-                </button>
-            
-            </form>
-            
-        </div>
-   
-        <!-- <a href="#" style="float: right;">Contact Us</a> --> 
+      <a href="/contact">Home</a>
+      <a href="/matchfinder" *ngIf=" IsAuthenticated">Add Contacts</a>
+      <a style="float: right;" *ngIf=" IsAuthenticated" (click)="logout()"><span class="glyphicon glyphicon-log-out"
+          aria-hidden="true"></span> Logout</a>
+      <div class="search" style="width: 90%;">
+        <form #seachForm="ngForm" (ngSubmit)="searchButtonClicked(seachForm)">
+          <input type="text" [hidden]="false" placeholder=" Search Courses" autocomplete="off" name="search"
+            list="dynmicUserIds" (keydown)="onKeyDownEvent($event)" ngModel>
+          <datalist id="dynmicUserIds">
+            <option *ngFor="let item of dropdown" [value]="item.name">{{item.name}}</option>
+          </datalist>
+          <button [hidden]="false" type="submit">
+            <i class="fa fa-search" style="font-size: 18px;">
+            </i>
+          </button>
+        </form>
+      </div>
     </div>
-    
-</div>
-<br>
-<div *ngIf="subDropDown?.length > 0" [hidden]="false" class="borderClass" style="margin-top: 10px;" ><br /><br /><br />
-  <div style="text-align: center;" >
-    <span *ngFor="let item of subDropDown" >
-  <input type="checkbox"   [(ngModel)]="item.selected"/>&#160;{{item.name}}
-    </span>
-  <button type="button" (click)="Apply()" style="margin-left: 10px;" class="btn btn-primary">Apply</button>
-</div></div>
-    <!-- logo with tag -->
-    <router-outlet></router-outlet>
+  </div>
+  <br>
+  <div *ngIf="subDropDown?.length > 0" [hidden]="false" class="borderClass" style="margin-top: 10px;"><br /><br /><br />
+    <div style="text-align: center;">
+      <span *ngFor="let item of subDropDown">
+        <input type="checkbox" [(ngModel)]="item.selected" />&#160;{{item.name}}
+      </span>
+      <button type="button" (click)="apply()" style="margin-left: 10px;" class="btn btn-primary">Apply</button>
+    </div>
+  </div>
+  <!-- logo with tag -->
+  <router-outlet></router-outlet>
 </body>
-  
-</html> 
 
-
-  
-
+</html>

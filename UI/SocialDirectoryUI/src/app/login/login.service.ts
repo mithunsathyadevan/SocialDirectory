@@ -17,12 +17,12 @@ export class LoginService {
 
    }
 
-   public Login(username:string,pass:string): Observable<any> {
+   public login(username:string,pass:string): Observable<any> {
     let objet={userName:username,password:pass};
     const url = `${this.apiURL}api/Authentication/Login`;
     return this.httpClient.post(url, objet);
   }
-  public Register(register:any): Observable<any> {
+  public register(register:any): Observable<any> {
     
     let objet={password:register.password1,
       firstName:register.FirstName,

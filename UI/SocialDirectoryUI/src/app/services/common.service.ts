@@ -9,30 +9,19 @@ import { environment } from "../../environments/environment";
 })
 export class CommonService {
   apiURL = environment.apiPath;
-  
-
-
 
   constructor(private httpClient: HttpClient) {
 
    }
-
-  
-  public GetMasterInterest(search:string): Observable<any> {
-    
-   
+  public getMasterInterest(search:string): Observable<any> {
     const url = `${this.apiURL}api/Interest/getinterests?search=${search}`;
     return this.httpClient.get(url);
   }
-  public GetSubInterest(search:any,type:string): Observable<any> {
-    
-   
+  public getSubInterest(search:any,type:string): Observable<any> {
     const url = `${this.apiURL}api/Interest/getSubInterests?id=${search}&&type=${type}`;
     return this.httpClient.get(url);
   }
-  public GetMatches(obj:any): Observable<any> {
-    
-   
+  public getMatches(obj:any): Observable<any> {
     const url = `${this.apiURL}api/Matching/ListInterest`;
     return this.httpClient.post(url,obj);
   }
@@ -41,11 +30,9 @@ export class CommonService {
   getData() {
       return this.dataObs$;
   }
-
   updateData(data: boolean) {
       this.dataObs$.next(data);
   }
-
 }
 
 
