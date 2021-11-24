@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SocailDirectoryModels.Models;
+using SocialDirectoryAPI.Contract;
 using SocialDirectoryAPI.Models;
 using SocialDirectoryContracts.Interest;
 using System;
@@ -16,9 +17,11 @@ namespace SocialDirectoryAPI.Controllers
     public class InterestController : ControllerBase
     {
         InterestContract _interestContract;
-        public InterestController(InterestContract interestContract)
+        IUserDetailsContract _userDetails;
+        public InterestController(InterestContract interestContract, IUserDetailsContract userDetails)
         {
             _interestContract = interestContract;
+            _userDetails = userDetails;
         }
         [HttpGet("getinterests")]
         public async Task<List<MasterSearchDropDown>> GetMasterInterest(string search)
@@ -30,14 +33,14 @@ namespace SocialDirectoryAPI.Controllers
             {
                 Id=x.Id,
                 Name=x.InterestName,
-                Type="Interest",
+                Type= SocailDirectoryConstants.Interest,
                 Selected=true
             }).ToList());
             returnData.AddRange(location.Select(x => new MasterSearchDropDown
             {
                 Id=x.Item1,
                 Name = x.Item2,
-                Type = "Location",
+                Type = SocailDirectoryConstants.Location,
                 Selected = true
             }).ToList());
             return returnData;
@@ -53,7 +56,7 @@ namespace SocialDirectoryAPI.Controllers
                 {
                     Id = x.Id,
                     Name = x.InterestName,
-                    Type = "Interest",
+                    Type = SocailDirectoryConstants.Interest,
                     Selected = true
                 }).ToList();
             }
@@ -64,7 +67,7 @@ namespace SocialDirectoryAPI.Controllers
                 {
                     Id = x.Id,
                     Name = x.InterestName,
-                    Type = "Interest",
+                    Type = SocailDirectoryConstants.Interest,
                     Selected = true
                 }).ToList();
             }
@@ -76,14 +79,14 @@ namespace SocialDirectoryAPI.Controllers
         {
             var returnData = new List<MasterSearchDropDown>();
             var data = await _interestContract.GetAllInterest();
-            int userId = Convert.ToInt32(HttpContext.User.Claims.Where(x => x.Type == "UserId").FirstOrDefault().Value);
-            var usersInterest = await _interestContract.GetUserInterest(userId);
+            var user = _userDetails.GetUserDetails(HttpContext);
+            var usersInterest = await _interestContract.GetUserInterest(user.UserId);
             var interest = usersInterest.Select(x => x.Id).ToArray();
             return data.Where(x=> !interest.Contains(x.Id)). Select(x => new MasterSearchDropDown
             {
                 Id = x.Id,
                 Name = x.InterestName,
-                Type = "Interest"
+                Type = SocailDirectoryConstants.Interest
             }).ToList();
         }
         [HttpGet("getUserInterests")]
@@ -91,9 +94,8 @@ namespace SocialDirectoryAPI.Controllers
         public async Task<List<InterestModelResponse>> GetUsersInterests()
         {
             var returnData = new List<InterestModelResponse>();
-
-            int userId = Convert.ToInt32(HttpContext.User.Claims.Where(x => x.Type == "UserId").FirstOrDefault().Value);
-            var data = await _interestContract.GetUserInterest(userId);
+            var user = _userDetails.GetUserDetails(HttpContext);
+            var data = await _interestContract.GetUserInterest(user.UserId);
             return data.Select(x => new InterestModelResponse
             {
                 InterestId = x.Id,
@@ -105,9 +107,8 @@ namespace SocialDirectoryAPI.Controllers
         public async Task<ResponseViewModel> Save(int interestId)
         {
             var returnData = new ResponseViewModel ();
-
-            int userId = Convert.ToInt32(HttpContext.User.Claims.Where(x => x.Type == "UserId").FirstOrDefault().Value);
-            var data = await _interestContract.SaveInterest(userId,interestId);
+            var user = _userDetails.GetUserDetails(HttpContext);
+            var data = await _interestContract.SaveInterest(user.UserId,interestId);
             return returnData;
         
         }
@@ -116,11 +117,9 @@ namespace SocialDirectoryAPI.Controllers
         public async Task<ResponseViewModel> DeleteUserInterest(int interestId)
         {
             var returnData = new ResponseViewModel();
-
-            int userId = Convert.ToInt32(HttpContext.User.Claims.Where(x => x.Type == "UserId").FirstOrDefault().Value);
-            var data = await _interestContract.DeleteInterest(userId, interestId);
+            var user = _userDetails.GetUserDetails(HttpContext);
+            var data = await _interestContract.DeleteInterest(user.UserId, interestId);
             return returnData;
-
         }
     }
 }

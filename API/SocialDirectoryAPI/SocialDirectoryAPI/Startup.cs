@@ -10,7 +10,9 @@ using Microsoft.Extensions.Logging;
 using SocailDirectoryServices.Contact;
 using SocailDirectoryServices.Interest;
 using SocailDirectoryServices.UserManagement;
+using SocialDirectoryAPI.Contract;
 using SocialDirectoryAPI.Extentions;
+using SocialDirectoryAPI.Services;
 using SocialDirectoryContracts.Contact;
 using SocialDirectoryContracts.Interest;
 using SocialDirectoryContracts.UserManagement;
@@ -51,6 +53,8 @@ namespace SocialDirectoryAPI
             services.AddTransient< IAuthenticateContract ,AuthtenticationService >();
             services.AddTransient<IJwtContract, JWTService>();
             services.AddTransient<IContacts, ContactService>();
+            services.AddTransient<IUserDetailsContract, UserDetailsService>();
+            services.AddTransient<IMatchAlgo, MatchAlgoService>();
             services.AddTransient<InterestContract, InterestService>();
         }
 

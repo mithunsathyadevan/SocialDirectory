@@ -150,12 +150,12 @@ equals user.UserId
                 _context.UserInterestMappings.Remove(dataSource);
                 await _context.SaveChangesAsync();
                 returnData.IsSuccess = true;
-                returnData.Message = "Successfully deleted record";
+                returnData.Message = SocailDirectoryConstants.DeletedRecords;
             }
             else
             {
                 returnData.IsSuccess = false;
-                returnData.Message = "Failed to delete record";
+                returnData.Message = SocailDirectoryConstants.DeletedRecordsFailed;
             }
 
             return returnData;
@@ -174,7 +174,7 @@ equals user.UserId
             if (_context.UserInterestMappings.Any(x => x.UserId == userId && x.InterestId == interestId))
             {
                 returnData.IsSuccess = false;
-                returnData.Message = "Interest Already Added";
+                returnData.Message = SocailDirectoryConstants.InterestAlreadyExist;
             }
             else
             {
