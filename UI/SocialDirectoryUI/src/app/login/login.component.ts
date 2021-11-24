@@ -29,7 +29,6 @@ export class LoginComponent implements OnInit {
     }
   }
   loginClicked(loginForm: any) {
-
     if (loginForm.valid) {
       this.loginsService.login(loginForm.value.username, loginForm.value.password).pipe(takeUntil(this.destroy$)).subscribe((data) => {
         if (data.isSuccess) {

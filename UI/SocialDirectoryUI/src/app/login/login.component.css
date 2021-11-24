@@ -200,7 +200,7 @@ a {
 }
 
 .dd2 {
-  height: 85%;
+  height: 93%;
 }
 
 .dd3 {
@@ -210,4 +210,7 @@ a {
 
 .dd4 {
   height: 670px;
+}
+.validation{
+	color: red;
 }
